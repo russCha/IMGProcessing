@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="author" content="Russ Chamberlain">
+    <meta name="description" content="VanGoghTransform">
+    <title>VanGoghTransform</title>
+	<script src="median.js" type="text/javascript"></script>
+	<script src="filter.js" type="text/javascript"></script>
+	<script src="VanGoghTransform.js" type="text/javascript"></script>
+	
+	<!-- Put a nice border around the table -->
+	<style>
+	table, th, td {
+		border: 1px solid black;
+	}
+	</style>
+</head>
+
+<body>
+    <h1>Van Gogh Transform</h1>
+	<p>This program takes in a user provided image buy means of drag-and-drop and transforms the image to mimic a style of Van Gogh based on the user's preference. The program is currently in the making and a step by step process can be seen below.</p>
+	<br>
+ 
+	<!-- 
+	set up buttons as listiners for which transform to apply
+	<button type="button" onclick="alert('Happyness Tranform Will Be Applied')">Happyness Transform</button>
+	<button type="button" onclick="alert('Sadness Tranform Will Be Applied')">Sadness Transform</button>
+    <button type="button" onclick="alert('Happyness Tranform Will Be Applied')">Happyness Transform</button>
+	<br>
+	-->
+
+	<!--
+	<h3>Select a Transform</h3>
+	<p>The transforms are based on the kind of emotion trying to be expressed during the creation of the image--as Van Gogh would have during the painting</p>
+	-->
+	
+	<!-- Make a drop down menu to choose transform -->
+	<!--
+	<select>
+		<option value="Make Selection">Make Selecction</option>
+		<option value="Style1">Style 1</option>
+		<option value="Style2">Style 2</option>
+		<option value="Style3">Style 3</option>
+		<option value="Style4">Style 4</option>
+	</select>
+	<br>
+	-->
+	
+	<!-- set up drag and drop area for listener in java -->
+	<h3>Drag and Drop Image</h3>
+	<div id="theDropArea" style="text-align: center; width:400px; height:50px; border:1px solid #aaaaaa;">
+        Drop image here!
+    </div>
+    <br>
+	
+    <table>
+		<!-- provide a title for table -->
+		<!-- <caption>Display of Original and Transformed Images</caption> -->
+		<tr>
+			<!-- Name each column for easier viewer use -->
+			<th>Submited Image</th>
+			<th>Transformed Image</th>
+		</tr>
+        <tr>
+            <!-- JavaScript will resize and draw images to the canvases and make their display = block -->
+            <!-- Source Canvas will hold the dragged original image == source image -->
+            <td>
+                <canvas id="sourceCanvas" style="width:180px; height:90px; border:1px solid #aaaaaa; display:none">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </td>
+            <td>
+                <canvas id="outputCanvas" style="width:180px; height:90px; border:1px solid #aaaaaa; display:none">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </td>
+        </tr>
+    </table>
+	<br>
+	
+	<!-- set up clear button to restart the process -->
+	
+	<p><b>Note:</b> To save the image, right-click the image and use the "save as" option. </p>
+	
+	<table>
+		<!-- provide a title for table -->
+		<!-- <caption>steps</caption> -->
+		<tr>
+			<!-- Name each column for easier viewer use -->
+			<th>Step 1:Greyscale Image</th>
+			<th>Step 2:Blurred Image (Median)</th>
+			<th>Step 3:Sobel Edge Detection</th>
+			<th>Step 4:Convolution Sharpen</th>
+			<th>Step 5:Black and White Filter</th>
+		</tr>
+        <tr>
+            <!-- JavaScript will resize and draw images to the canvases and make their display = block -->
+            <!-- Source Canvas will hold the dragged original image == source image -->
+            <td>
+                <canvas id="greyCanvas" style="width:180px; height:90px; border:1px solid #aaaaaa; display:none">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </td>
+			<td>
+                <canvas id="blurCanvas" style="width:180px; height:90px; border:1px solid #aaaaaa; display:none">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </td>
+            <td>
+                <canvas id="sobelCanvas" style="width:180px; height:90px; border:1px solid #aaaaaa; display:none">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </td>
+            <td>
+                <canvas id="conSharpCanvas" style="width:180px; height:90px; border:1px solid #aaaaaa; display:none">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </td>
+            <td>
+                <canvas id="bwCanvas" style="width:180px; height:90px; border:1px solid #aaaaaa; display:none">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+            </td>
+        </tr>
+    </table>
+
+	<!-- show all steps -->
+	
+	
+	<!--
+	Possibilities:
+	http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_menuitem
+	-->
+
+</body>
+</html>
